@@ -26,7 +26,6 @@ const props = defineProps({
 
 const emit = defineEmits(['drag-task', 'drop-task']);
 
-// Métodos para manejar el arrastre y la colocación de tareas
 const dragStart = (task) => {
   emit('drag-task', task);
 };
