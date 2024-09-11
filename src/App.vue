@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Kanban Board</h1>
     <Board />
   </div>
 </template>
