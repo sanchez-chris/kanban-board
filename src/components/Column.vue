@@ -20,6 +20,7 @@ const dropTask = () => {
 </script>
 
 <template>
+
   <div class="column">
     <h2>{{ props.name }}</h2>
     <div class="tasks" @drop="dropTask" @dragover.prevent>
@@ -34,14 +35,14 @@ const dropTask = () => {
     </div>
    
   </div>
+
 </template>
 
 <style scoped>
 .column {
   padding: 10px;
-  width: 300px;
+  width:auto;
   background-color: #e2e2e2;
-  margin-right: 10px;
   border-radius: 4px;
 }
 .tasks {

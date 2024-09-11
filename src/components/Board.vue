@@ -14,6 +14,7 @@
       <div class="columns">
         <Column
           v-for="column in columns"
+          class="column"
           :key="column.name"
           :name="column.name"
           :tasks="column.tasks"
@@ -70,21 +71,36 @@ import { getAutomaticTypeDirectiveNames } from 'typescript';
   
   <style scoped>
   .board {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     justify-content: space-between;
   }
   .columns {
+    flex: 1; /* Cada columna ocupará el mismo espacio disponible */
     display: flex;
+ 
   }
+  .column {
+    flex: 1;
+    box-sizing: border-box;
+    margin-left: 10px;
+  }
+
+  .column:first-child {
+  margin-left: 0; /* El primer elemento no tiene margen izquierdo */
+  }
+
   .container {
-  display: flex;
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 14px;
-  align-items: center;
-}
+
+    display: flex;
+    width: 100%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    align-items: center;
+  }
 
 .box-1 {
   width: 33%;
