@@ -10,6 +10,7 @@
     "lint": "eslint --fix src/**/*.vue"
   },
   "dependencies": {
+    "uuid": "^10.0.0",
     "vue": "^3.4.37"
   },
   "devDependencies": {
