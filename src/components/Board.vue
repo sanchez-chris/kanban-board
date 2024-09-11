@@ -4,7 +4,8 @@
         <Column
           v-for="column in columns"
           :key="column.name"
-          :column="column"
+          :name="column.name"
+          :tasks="column.tasks"
           @drag-task="dragTask"
           @drop-task="dropTask"
         />
@@ -17,7 +18,7 @@
   import { reactive, watch, onMounted } from 'vue';
   
   const columns = reactive([
-    { name: "To Do", tasks: [{ id: 1, title: "Task 1" }, { id: 2, title: "Task 2" }] },
+    { name: "To Do", tasks: [{ id: 1, title: "Task 1", description: "Description" }, { id: 2, title: "Task 2", description: "Description" }] },
     { name: "In Progress", tasks: [] },
     { name: "Done", tasks: [] }
   ]);
@@ -40,7 +41,7 @@
   
     draggedTask = null; 
   };
-  
+
   onMounted(() => {
   const savedColumns = localStorage.getItem('kanban-columns');
   if (savedColumns) {

@@ -1,19 +1,19 @@
-<template>
-  <div class="task">
-    {{ task.title }}
-  </div>
-</template>
-  
 <script setup>
 import { defineProps } from 'vue';
-  
+
 const props = defineProps({
-    task: {
-      type: Object,
-      required: true
-    }
+  id: Number,
+  title: String,
+  description:  String
 });
 </script>
+
+<template>
+  <div class="task">
+    <h4>{{ props.title }}</h4> 
+    <p>{{ props.description }}</p>
+  </div>
+</template>
   
 <style scoped>
 .task {
