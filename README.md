@@ -20,21 +20,16 @@ The Kanban Board is a web application that allows you to manage tasks efficientl
 ### Installation
 
 1. Clone the repository:
-   ```bash
    git clone https://github.com/sanchez-chris/kanban-board.git
 2. Navigate into the project directory:
-   ```bash
   cd kanban-board
 3. Install the dependencies:
-   ```bash
    npm install
 
 
 ### Running the Application
    To start the application, run:
-   ```bash
    npm run dev
-
    Open your browser and navigate to http://localhost:3000 to view the Kanban board.
 
 ### Usage
