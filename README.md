@@ -25,7 +25,7 @@ The Kanban Board is a web application that allows you to manage tasks efficientl
    
 2. Navigate into the project directory:
    
-  cd kanban-board
+   cd kanban-board
   
 3. Install the dependencies:
    
