@@ -1,37 +1,11 @@
-<template>
-    <div class="container">
-      <div class="box-1">
-       <h2>Kanban Board</h2>
-       <p class="intro-text">In the menu on the right, you can add new tasks. You can organize them into different columns using drag and drop.</p>
-      </div>
-      <div class="box-2">
-        <NewTaskMenu />
-      </div>
-     
-    </div>
 
-    <div class="board">
-      <div class="columns">
-        <Column
-          v-for="column in columns"
-          class="column"
-          :key="column.name"
-          :name="column.name"
-          :tasks="column.tasks"
-          @drag-task="dragTask"
-          @drop-task="dropTask"
-        />
-      </div>
-    </div>
-  </template>
-  
   <script setup>
   import Column from './Column.vue';
   import NewTaskMenu from './NewTaskMenu.vue';
-  import {tasks} from "../utils/useKanban"
+  import { tasks } from "../utils/useKanban"
   import { reactive, watch, onMounted } from 'vue';
-import { getAutomaticTypeDirectiveNames } from 'typescript';
-  
+  import { getAutomaticTypeDirectiveNames } from 'typescript';
+
   const columns = reactive([
     { name: "To Do", tasks: tasks.value },
     { name: "In Progress", tasks: [] },
@@ -68,6 +42,34 @@ import { getAutomaticTypeDirectiveNames } from 'typescript';
     localStorage.setItem('kanban-columns', JSON.stringify(newColumns));
     }, { deep: true });
     </script>
+
+<template>
+  <div class="container">
+    <div class="box-1">
+     <h2>Kanban Board</h2>
+     <p class="intro-text">In the menu on the right, you can add new tasks. You can organize them into different columns using drag and drop.</p>
+    </div>
+    <div class="box-2">
+      <NewTaskMenu />
+    </div>
+   
+  </div>
+
+  <div class="board">
+    <div class="columns">
+      <Column
+        v-for="column in columns"
+        class="column"
+        :key="column.name"
+        :name="column.name"
+        :tasks="column.tasks"
+        @drag-task="dragTask"
+        @drop-task="dropTask"
+      />
+    </div>
+  </div>
+</template>
+
   
   <style scoped>
   .board {

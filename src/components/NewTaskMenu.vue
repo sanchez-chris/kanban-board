@@ -1,33 +1,30 @@
-<script>
+<script setup>
 import { ref } from "vue";
 import {tasks, newTaskTitle, newTaskDescription} from "../utils/useKanban"
+import { v4 as uuidv4 } from 'uuid';
 
 const addTask = () => {
-  console.log("hi");
-  if(newTaskTitle.value != "" || newTaskDescription.value != "") {
-    console.log("h if");
-
+  if(newTaskTitle.value != "") {
     tasks.value.push({
     id: uuidv4(),
-    title: "newTaskTitle.value",
+    title: newTaskTitle.value,
     description: newTaskDescription.value
     });
+    newTaskTitle.value = "";
+    newTaskDescription.value = "";
   }
-  newTaskTitle.value = "";
-  newTaskDescription.value = "";
-}
+};
 </script>
 <template>
-
     <div class="menu">
          <div class="menu-item">
-           <input class="input-task" type="text" v-model="newTaskTitle" placeholder="Title" />
+           <input class="input-task" type="text" v-model="newTaskTitle" placeholder="Title (mandatory)" />
          </div>
          <div class="menu-item">
-           <textarea class="input-task" type="text" v-model="newTaskDescription" placeholder="Description"></textarea>
+           <textarea class="input-task" type="text" v-model="newTaskDescription" placeholder="Description (optional)"></textarea>
          </div>
          <div>
-           <button class="add-btn" @click="addTask">Add Task</button>
+           <button class="add-btn" @click="addTask()">Add Task</button>
          </div>
        </div>
 </template>

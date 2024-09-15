@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/utils/types.ts","./src/utils/usekanban.ts","./src/app.vue","./src/components/board.vue","./src/components/column.vue","./src/components/helloworld.vue","./src/components/newtaskmenu.vue","./src/components/task.vue"],"errors":true,"version":"5.6.2"}
