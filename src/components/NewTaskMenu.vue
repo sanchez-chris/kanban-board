@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import {tasks, newTaskTitle, newTaskDescription} from "../utils/useKanban"
+import { tasks, newTaskTitle, newTaskDescription } from "../utils/useKanban"
 import { v4 as uuidv4 } from 'uuid';
 
 const addTask = () => {

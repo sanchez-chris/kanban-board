@@ -19,13 +19,13 @@ const dropTask = () => {
 </script>
 
 <template>
-
   <div class="column">
     <h2>{{ props.name }}</h2>
     <div class="tasks" @drop="dropTask" @dragover.prevent>
       <Task
         v-for="task in props.tasks"
         :key="task.id"
+        :id="task.id"
         :title="task.title"
         :description="task.description"
         draggable="true"
