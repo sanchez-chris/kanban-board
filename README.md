@@ -27,22 +27,23 @@ The Kanban Board is a web application that allows you to manage tasks efficientl
   cd kanban-board
 3. Install the dependencies:
    ```bash
-npm install
+   npm install
+
 
 ### Running the Application
-To start the application, run:
+   To start the application, run:
    ```bash
-npm run dev
+   npm run dev
 
-Open your browser and navigate to http://localhost:3000 to view the Kanban board.
+   Open your browser and navigate to http://localhost:3000 to view the Kanban board.
 
 ### Usage
-1. Create a Task: Click on the menu to add a new task. Enter the title and description and save it.
-2. Move Tasks: Drag and drop tasks between different stages to update their status.
-3. Delete a Task: Click the delete button on a task to remove it from the board.
+   1. Create a Task: Click on the menu to add a new task. Enter the title and description and save it.
+   2. Move Tasks: Drag and drop tasks between different stages to update their status.
+   3. Delete a Task: Click the delete button on a task to remove it from the board.
 
-###Contributing
-Feel free to submit issues or pull requests to improve the project. Please follow the standard Git workflow for contributing.
+### Contributing
+   Feel free to submit issues or pull requests to improve the project. Please follow the standard Git workflow for contributing.
 
-###License
-This project is licensed under the MIT License - see the LICENSE file for details.
+### License
+   This project is licensed under the MIT License - see the LICENSE file for details.
