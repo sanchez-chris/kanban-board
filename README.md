@@ -35,7 +35,7 @@ The Kanban Board is a web application that allows you to manage tasks efficientl
 ### Running the Application
    To start the application, run:
    npm run dev
-   Open your browser and navigate to http://localhost:3000 to view the Kanban board.
+   Open your browser and navigate to http://localhost:5173 to view the Kanban board.
 
 ### Usage
    1. Create a Task: Click on the menu to add a new task. Enter the title and description and save it.
