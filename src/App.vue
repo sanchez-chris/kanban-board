@@ -3,13 +3,13 @@ import Board from './components/Board.vue';
 </script>
 
 <template>
-  <div id="app" class="app">
+  <div id="app_board" class="app_board">
     <Board />
   </div>
 </template>
 
 <style scoped>
-#app {
+#app_board {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   
