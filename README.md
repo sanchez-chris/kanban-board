@@ -1,32 +1,49 @@
-#Kanban Board
-##Description
-This project implements a simple Kanban board using [insert technologies used, e.g., HTML, CSS, JavaScript]. It allows users to:
+# Kanban Board
 
-Add new tasks: By filling out the form at the top.
-Organize tasks: By dragging and dropping tasks between the "To Do", "In Progress", and "Done" columns.
-Visualize progress: By viewing tasks in each stage of the workflow.
+## Overview
 
-##Installation
-Clone the repository:
-Bash
-git clone https://your-repository.git
-Open the project: Open the project directory in your preferred code editor.
+The Kanban Board is a web application that allows you to manage tasks efficiently using a visual board. You can create tasks, move them between different stages using drag-and-drop functionality, and delete tasks as needed.
 
-##Usage
-Add a task:
-Fill out the "Title" and "Description" fields in the form.
-Click the "Add Task" button.
-Move a task:
-Click and drag a task to the desired column.
+## Features
+
+- **Create New Tasks**: Add tasks through a menu by specifying the title and description.
+- **Drag and Drop**: Move tasks between different stages of the board with ease.
+- **Delete Tasks**: Remove tasks that are no longer needed.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repository:
+   
+   git clone https://github.com/sanchez-chris/kanban-board.git
+   
+2. Navigate into the project directory:
+   
+   cd kanban-board
+  
+3. Install the dependencies:
+   
+   npm install
 
 
-##Future Considerations
+### Running the Application
+   To start the application, run:
+   npm run dev
+   Open your browser and navigate to http://localhost:5173 to view the Kanban board.
 
-Allow task editing.
-Add search functionality.Integrate with external task management systems.
-Implement notifications.
-Contributing
-Contributions are welcome. Please open an issue to discuss new features or improvements.
+### Usage
+   1. Create a Task: Click on the menu to add a new task. Enter the title and description and save it.
+   2. Move Tasks: Drag and drop tasks between different stages to update their status.
+   3. Delete a Task: Click the delete button on a task to remove it from the board.
 
-##License
-This project is licensed under the [Specify license, e.g., MIT] license.
+### Contributing
+   Feel free to submit issues or pull requests to improve the project. Please follow the standard Git workflow for contributing.
+
+### License
+   This project is licensed under the MIT License - see the LICENSE file for details.
