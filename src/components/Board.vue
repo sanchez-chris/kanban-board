@@ -94,10 +94,8 @@
   }
 
   .container {
-
     display: flex;
     width: 100%;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 14px;

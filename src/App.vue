@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <Board />
   </div>
 </template>
@@ -12,7 +12,7 @@ import Board from './components/Board.vue';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-top: 40px;
+  
 }
 
 html, body {
