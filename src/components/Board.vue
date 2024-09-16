@@ -1,32 +1,32 @@
 
-  <script setup>
+  <script setup lang="ts">
   import Column from './Column.vue';
   import NewTaskMenu from './NewTaskMenu.vue';
   import { tasks } from "../utils/useKanban"
-  import { reactive, watch, onMounted } from 'vue';
-  import { getAutomaticTypeDirectiveNames } from 'typescript';
+  import { type Task_Type  } from "../utils/types"
+  import { ref, watch, onMounted } from 'vue';
 
-  const columns = reactive([
+  const columns = ref([
     { name: "To Do", tasks: tasks.value },
     { name: "In Progress", tasks: [] },
     { name: "Done", tasks: [] }
   ]);
   
-  let draggedTask = null;
+  let draggedTask: Task_Type  | null = null;
   
-  const dragTask = (task) => {
+  const dragTask = (task: Task_Type ) => {
     draggedTask = task;
   };
   
-  const dropTask = (columnName) => {
+  const dropTask = (columnName: String) => {
     if (!draggedTask) return;
   
-    columns.forEach(column => {
-      column.tasks = column.tasks.filter(t => t.id !== draggedTask.id);
+    columns.value.forEach(column => {
+      column.tasks = column.tasks.filter(t => t.id !== draggedTask?.id);
     });
   
-    const targetColumn = columns.find(col => col.name === columnName);
-    targetColumn.tasks.push(draggedTask);
+    const targetColumn = columns.value.find(col => col.name === columnName);
+    targetColumn?.tasks.push(draggedTask);
   
     draggedTask = null; 
   };

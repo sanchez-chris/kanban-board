@@ -1,15 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import Task from './Task.vue';
-import { defineProps, defineEmits, ref } from 'vue';
+import { defineProps, defineEmits } from 'vue';
+import { type Task_Type  } from "../utils/types";
 
 const props = defineProps({
   name: String,
-  tasks: Array
+  tasks: Array as () => Task_Type[]
 });
 
 const emit = defineEmits(['drag-task', 'drop-task']);
 
-const dragStart = (task) => {
+const dragStart = (task: Task_Type) => {
   emit('drag-task', task);
 };
 

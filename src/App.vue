@@ -1,12 +1,12 @@
+<script setup lang="ts">
+import Board from './components/Board.vue';
+</script>
+
 <template>
   <div id="app" class="app">
     <Board />
   </div>
 </template>
-
-<script setup>
-import Board from './components/Board.vue';
-</script>
 
 <style scoped>
 #app {

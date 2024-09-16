@@ -1,5 +1,4 @@
-<script setup>
-import { ref } from "vue";
+<script setup lang="ts">
 import { tasks, newTaskTitle, newTaskDescription } from "../utils/useKanban"
 import { v4 as uuidv4 } from 'uuid';
 
