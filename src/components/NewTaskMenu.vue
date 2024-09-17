@@ -1,61 +1,52 @@
 <script setup lang="ts">
-import { tasks, newTaskTitle, newTaskDescription } from "../utils/useKanban"
-import { v4 as uuidv4 } from 'uuid';
+import { ref } from 'vue';
+import { defineEmits } from 'vue';
 
-const addTask = () => {
-  if(newTaskTitle.value != "") {
-    tasks.value.push({
-    id: uuidv4(),
-    title: newTaskTitle.value,
-    description: newTaskDescription.value
-    });
-    newTaskTitle.value = "";
-    newTaskDescription.value = "";
+const title = ref('');
+const description = ref('');
+
+const emit = defineEmits(['add-task']);
+
+const createTask = () => {
+  if (title.value.trim()) {
+    emit('add-task', title.value, description.value);
+    title.value = '';
+    description.value = '';
   }
 };
 </script>
+
 <template>
-    <div class="menu">
-         <div class="menu-item">
-           <input class="input-task" type="text" v-model="newTaskTitle" placeholder="Title (mandatory)" />
-         </div>
-         <div class="menu-item">
-           <textarea class="input-task" type="text" v-model="newTaskDescription" placeholder="Description (optional)"></textarea>
-         </div>
-         <div>
-           <button class="add-btn" @click="addTask()">Add Task</button>
-         </div>
-       </div>
+  <div class="new-task-menu">
+    <input v-model="title" type="text" placeholder="Task Title" />
+    <textarea v-model="description" placeholder="Task Description"></textarea>
+    <button @click="createTask" :disabled="!title">Add Task</button>
+  </div>
 </template>
-<style>
-.menu {
+
+<style scoped>
+.new-task-menu {
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
+  gap: 8px;
 }
 
-.menu-item {
-  margin-bottom: 15px;
-}
-
-.input-task {
-  width: 80%;
-  padding: 10px;
-  border: 1px solid #ccc;
+input, textarea {
+  padding: 8px;
   border-radius: 4px;
-  font-size: 14px;
+  border: 1px solid #ccc;
 }
 
-.add-btn {
-  background-color: #e2e2e2;
-  color: black;
-  padding: 12px 20px 12px;
-  border-radius: 8px;
+button {
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.add-btn:hover {
-  border: 1px solid black;
+button:disabled {
+  background-color: #cccccc;
 }
 </style>
