@@ -1,55 +1,60 @@
 <script setup lang="ts">
-import Task from './Task.vue';
 import { defineProps, defineEmits } from 'vue';
-import { type Task_Type  } from "../utils/types";
+import Task from './Task.vue';
+import type { Task_Type } from '../utils/types';
 
 const props = defineProps({
   name: String,
-  tasks: Array as () => Task_Type[]
+  tasks: Array as () => Task_Type[],
 });
 
-const emit = defineEmits(['drag-task', 'drop-task']);
+const emit = defineEmits(['delete-task', 'update-task-status']);
 
-const dragStart = (task: Task_Type) => {
-  emit('drag-task', task);
+const deleteTask = (id: number) => {
+  emit('delete-task', id);
 };
 
-const dropTask = () => {
-  emit('drop-task', props.name);
+const onDragOver = (event: DragEvent) => {
+  event.preventDefault();
+};
+
+const onDrop = (event: DragEvent) => {
+  const taskId = event.dataTransfer?.getData('task-id');
+  if (taskId) {
+    emit('update-task-status', parseInt(taskId), props.name);
+  }
 };
 </script>
 
 <template>
   <div class="column">
-    <h2>{{ props.name }}</h2>
-    <div class="tasks" @drop="dropTask" @dragover.prevent>
+    <h3>{{ name }}</h3>
+    <div
+      class="tasks"
+      @drop="onDrop"
+      @dragover="onDragOver"
+    >
       <Task
-        v-for="task in props.tasks"
+        v-for="task in tasks"
         :key="task.id"
-        :id="task.id"
-        :title="task.title"
-        :description="task.description"
-        draggable="true"
-        @dragstart="dragStart(task)"
+        :task="task"
+        @delete-task="deleteTask"
       />
     </div>
-   
   </div>
-
 </template>
 
 <style scoped>
 .column {
-  padding: 10px;
-  width:auto;
+  flex: 1;
   background-color: #e2e2e2;
-  border-radius: 4px;
-}
-.tasks {
-  min-height: 200px;
-  border: 2px #cccccc;
-  border-radius: 4px;
-  padding: 10px;
+  border-radius: 8px;
 }
 
+.tasks {
+  min-height: 300px;
+  padding: 15px;
+  background-color: #e2e2e2;
+  border-radius: 8px;
+}
 </style>

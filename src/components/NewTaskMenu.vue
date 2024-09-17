@@ -1,49 +1,57 @@
 <script setup lang="ts">
-import { tasks, newTaskTitle, newTaskDescription } from "../utils/useKanban"
-import { v4 as uuidv4 } from 'uuid';
+import { ref } from 'vue';
+import { defineEmits } from 'vue';
 
-const addTask = () => {
-  if(newTaskTitle.value != "") {
-    tasks.value.push({
-    id: uuidv4(),
-    title: newTaskTitle.value,
-    description: newTaskDescription.value
-    });
-    newTaskTitle.value = "";
-    newTaskDescription.value = "";
+const title = ref('');
+const description = ref('');
+
+const emit = defineEmits(['add-task']);
+
+const createTask = () => {
+  if (title.value.trim()) {
+    emit('add-task', title.value, description.value);
+    title.value = '';
+    description.value = '';
   }
 };
 </script>
+
 <template>
-    <div class="menu">
-         <div class="menu-item">
-           <input class="input-task" type="text" v-model="newTaskTitle" placeholder="Title (mandatory)" />
-         </div>
-         <div class="menu-item">
-           <textarea class="input-task" type="text" v-model="newTaskDescription" placeholder="Description (optional)"></textarea>
-         </div>
-         <div>
-           <button class="add-btn" @click="addTask()">Add Task</button>
-         </div>
-       </div>
+    <div class="container">
+    <div class="box-1">
+     <h2>Kanban Board</h2>
+     <p class="intro-text">In the menu on the right, you can add new tasks. You can organize them into different columns using drag and drop.</p>
+    </div>
+    <div class="box-2">
+      <div class="new-task-menu">
+        <input v-model="title" type="text" placeholder="Task Title" />
+        <textarea v-model="description" placeholder="Task Description"></textarea>
+        <button class="add-btn" @click="createTask" :disabled="!title">Add Task</button>
+      </div>
+    </div>
+   
+  </div>
+
+
 </template>
-<style>
-.menu {
+
+<style scoped>
+.new-task-menu {
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
+  gap: 8px;
 }
 
-.menu-item {
-  margin-bottom: 15px;
-}
-
-.input-task {
-  width: 80%;
-  padding: 10px;
-  border: 1px solid #ccc;
+input, textarea {
+  padding: 8px;
   border-radius: 4px;
-  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none; 
 }
 
 .add-btn {
@@ -57,5 +65,24 @@ const addTask = () => {
 
 .add-btn:hover {
   border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    align-items: center;
+  }
+
+.box-1 {
+  width: 33%;
+  padding: 10px;
+}
+
+.box-2 {
+  width: 66%;
+  padding: 10px;
 }
 </style>
