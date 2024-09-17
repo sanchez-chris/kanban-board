@@ -17,11 +17,22 @@ const createTask = () => {
 </script>
 
 <template>
-  <div class="new-task-menu">
-    <input v-model="title" type="text" placeholder="Task Title" />
-    <textarea v-model="description" placeholder="Task Description"></textarea>
-    <button @click="createTask" :disabled="!title">Add Task</button>
+    <div class="container">
+    <div class="box-1">
+     <h2>Kanban Board</h2>
+     <p class="intro-text">In the menu on the right, you can add new tasks. You can organize them into different columns using drag and drop.</p>
+    </div>
+    <div class="box-2">
+      <div class="new-task-menu">
+        <input v-model="title" type="text" placeholder="Task Title" />
+        <textarea v-model="description" placeholder="Task Description"></textarea>
+        <button class="add-btn" @click="createTask" :disabled="!title">Add Task</button>
+      </div>
+    </div>
+   
   </div>
+
+
 </template>
 
 <style scoped>
@@ -37,16 +48,41 @@ input, textarea {
   border: 1px solid #ccc;
 }
 
-button {
-  padding: 8px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none; 
 }
 
-button:disabled {
-  background-color: #cccccc;
+.add-btn {
+  background-color: #e2e2e2;
+  color: black;
+  padding: 12px 20px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-btn:hover {
+  border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    align-items: center;
+  }
+
+.box-1 {
+  width: 33%;
+  padding: 10px;
+}
+
+.box-2 {
+  width: 66%;
+  padding: 10px;
 }
 </style>

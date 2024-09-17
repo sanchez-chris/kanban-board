@@ -47,15 +47,14 @@ const onDrop = (event: DragEvent) => {
 <style scoped>
 .column {
   flex: 1;
-  padding: 16px;
-  background-color: #f4f4f4;
+  background-color: #e2e2e2;
   border-radius: 8px;
 }
 
 .tasks {
   min-height: 300px;
-  padding: 8px;
-  background-color: white;
+  padding: 15px;
+  background-color: #e2e2e2;
   border-radius: 8px;
 }
 </style>

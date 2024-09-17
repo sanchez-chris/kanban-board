@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue';
 import type { Task_Type } from '../utils/types';
+import closeIcon from "../images/close.png"; 
+
 
 const props = defineProps({
   task: Object as () => Task_Type,
@@ -20,14 +22,20 @@ const onDragStart = (event: DragEvent) => {
 </script>
 
 <template>
+  
   <div
     class="task"
     draggable="true"
     @dragstart="onDragStart"
   >
+    <div class="delete-button-container">
+      <button class="delete-btn" @click="deleteTask">
+        <img :src="closeIcon" alt="close" class="close-icon" />
+      </button>
+    </div>
+
     <h4>{{ task?.title }}</h4>
     <p>{{ task?.description }}</p>
-    <button @click="deleteTask">Delete</button>
   </div>
 </template>
 
@@ -35,8 +43,22 @@ const onDragStart = (event: DragEvent) => {
 .task {
   padding: 12px;
   margin-bottom: 8px;
-  background-color: #e0e0e0;
+  background-color: white;
   border-radius: 8px;
   cursor: grab;
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: end;
+}
+
+.delete-btn:hover {
+  border: 1px solid black;
+}
+
+.close-icon {
+  height: 10px;
+  width: 10px;
 }
 </style>

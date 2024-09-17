@@ -64,10 +64,12 @@ const getTasksForColumn = (status: string) => {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background-color: white;
 }
 
 .columns {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;  
+  background-color: white;
 }
 </style>
