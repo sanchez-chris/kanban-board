@@ -24,9 +24,9 @@ const createTask = () => {
     </div>
     <div class="box-2">
       <div class="new-task-menu">
-        <input v-model="title" type="text" placeholder="Task Title" />
-        <textarea v-model="description" placeholder="Task Description"></textarea>
-        <button class="add-btn" @click="createTask" :disabled="!title">Add Task</button>
+        <input v-model="title" type="text" placeholder="Task Title" data-testid="input-title"/>
+        <textarea v-model="description" placeholder="Task Description" data-testid="description-title"></textarea>
+        <button class="add-btn" @click="createTask" :disabled="!title" data-testid="add-task-button">Add Task</button>
       </div>
     </div>
    

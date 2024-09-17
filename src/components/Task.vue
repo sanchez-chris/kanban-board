@@ -3,7 +3,6 @@ import { defineProps, defineEmits } from 'vue';
 import type { Task_Type } from '../utils/types';
 import closeIcon from "../images/close.png"; 
 
-
 const props = defineProps({
   task: Object as () => Task_Type,
 });
@@ -15,6 +14,7 @@ const deleteTask = () => {
 };
 
 const onDragStart = (event: DragEvent) => {
+  console.log("drag start");
   if(props.task) {
     event.dataTransfer?.setData('task-id', props.task.id.toString());
   }
@@ -22,21 +22,22 @@ const onDragStart = (event: DragEvent) => {
 </script>
 
 <template>
-  
-  <div
-    class="task"
-    draggable="true"
-    @dragstart="onDragStart"
-  >
-    <div class="delete-button-container">
-      <button class="delete-btn" @click="deleteTask">
-        <img :src="closeIcon" alt="close" class="close-icon" />
-      </button>
-    </div>
+    <div
+      class="task"
+      draggable="true"
+      @dragstart="onDragStart"
+      data-testid="task"
+    >
+      <div class="delete-button-container">
+        <button class="delete-btn" @click="deleteTask" data-testid="delete-task-button">
+          <img :src="closeIcon" alt="close" class="close-icon" />
+        </button>
+      </div>
 
-    <h4>{{ task?.title }}</h4>
-    <p>{{ task?.description }}</p>
-  </div>
+      <h4>{{ task?.title }}</h4>
+      <p>{{ task?.description }}</p>
+    </div>
+ 
 </template>
 
 <style scoped>

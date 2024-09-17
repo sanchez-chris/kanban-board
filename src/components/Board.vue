@@ -10,7 +10,12 @@ interface Task {
   status: string;
 }
 
-const tasks = ref<Task[]>([]);
+const tasks = ref<Task[]>([{
+  id: Date.now(),
+  title: "Go to buy food",
+  description: " Buy what is needed to make a nutritious lunch",
+  status: "To Do"
+}]);
 
 const columns = ref([
   { name: 'To Do' },
